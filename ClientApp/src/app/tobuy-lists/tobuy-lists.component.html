@@ -1,0 +1,19 @@
+<header>
+    <h1>To-do list</h1>
+    <form method="post" action="" class="subform">
+        <p class="nameoflist">
+            <input type="submit" value="Add list" (click)="onClickAdd()">
+            <input [(ngModel)]="newListName" type="text" name="name" id="name">
+        </p>
+    </form>
+</header>
+
+<table>
+    <tr *ngFor="let list of array" >
+        <th class="nameth" [routerLink]="['/list', list.id]">{{list.name}}</th>
+        <th class="done">{{totalChecked(list.products)}}/{{list.products.length}}</th>
+        <th class="button">
+            <button class="del1" (click)="onClickDelete(list)">X</button>
+        </th>
+    </tr>
+</table>
